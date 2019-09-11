@@ -1,6 +1,6 @@
 /**
- * This is an example of a basic node.js script that performs
- * the Authorization Code oAuth2 flow to authenticate against
+ * This is a modification of Spotify's example of a basic node.js script
+ * that performs the Authorization Code oAuth2 flow to authenticate against
  * the Spotify Accounts.
  *
  * For more information, read

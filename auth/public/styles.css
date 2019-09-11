@@ -10473,6 +10473,13 @@ th {
 
 .get-btns {
     margin: 10px 15px 15px 15px;
+    align-items: center;
+}
+
+.getTracksRecs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .top-btns {
@@ -10494,10 +10501,17 @@ a[name="top-tracks"] {
 
 #login-jtron a {
     max-width: 200px;
+    text-decoration: none;
 }
 
 #login-jtron hr {
     width: 100%;
     background-color: #191919;
     /* height: 1px; */
+}
+
+#dCard {
+    /* max-width: 20rem; */
+    width: 500px;
+    color: #191919
 }

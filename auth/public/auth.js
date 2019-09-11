@@ -1,3 +1,9 @@
+/*
+ * Spotify Authentication
+ */
+
+const limit = 10;
+
 /**
  * Obtains parameters from the hash of the URL
  * @return Object
@@ -19,6 +25,10 @@ var userProfileSource = document.getElementById('user-profile-template').innerHT
 var oauthSource = document.getElementById('oauth-template').innerHTML,
     oauthTemplate = Handlebars.compile(oauthSource),
     oauthPlaceholder = document.getElementById('oauth');
+
+var modalSelectSource = document.getElementById('modal-select-template').innerHTML,
+    modalSelectTemplate = Handlebars.compile(modalSelectSource),
+    modalSelectPlaceholder = document.getElementById('modal-select');
 
 var params = getHashParams();
 
@@ -43,6 +53,7 @@ if (error) {
         },
         success: function(response) {
           userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+          modalSelectPlaceholder.innerHTML = modalSelectTemplate(response);
 
           $('#login').hide();
           $('#loggedin').show();
@@ -70,35 +81,28 @@ if (error) {
   }, false);
 }
 
-console.log("access_token: " + access_token);
-console.log("refresh_token: " + refresh_token);
-
-const actkn = access_token;
-console.log("actkn: " + actkn);
 
 function getTopTracks() {
-    console.log("access_token: " + access_token);
+
 
   $.ajax({
-    url: 'https://api.spotify.com/v1/me/top/tracks?limit=10',
+    url: 'https://api.spotify.com/v1/me/top/tracks?limit=' + limit + '&time_range=short_term',
     headers: {
       'Authorization': 'Bearer ' + access_token
     },
     success: function(response) {
       $(".recs-btn").show();
-      console.log("response: " + response.items[0].album.name);
 
       mapOverSongs(response.items);
 
       document.getElementById("get-top-tracks").disabled = true;
+      document.getElementById("dCard").style.display = "none";
 
     }
   });
 }
 
 function mapOverSongs(songs) {
-
-    // $("#getrecommendations").show();
 
     songs.map( function(song) {
           var list = "<input type='checkbox' name='top-tracks' class='form-check-input' value='" +
@@ -114,27 +118,23 @@ function mapOverSongs(songs) {
 }
 
 function getRecommendations() {
+
     var checkboxes = document.getElementsByName('top-tracks');
     var numChecked = document.querySelectorAll('input[type="checkbox"]:checked').length;
     if(numChecked < 1) {
         $(".rec-alert").show();
     }
     else {
-        console.log("length: " + checkboxes.length);
-        console.log("checked: " + document.querySelectorAll('input[type="checkbox"]:checked').length);
-
 
             var selected = "";
             for (var i=0, n=checkboxes.length; i<n; i++) {
                 if (checkboxes[i].checked) {
                     selected += checkboxes[i].value+",";
-                    console.log("checkbox[" + i + "]: " + checkboxes[i].value);
-
                 }
             }
             selected = selected.slice(0, -1);
             $.ajax({
-                url: 'https://api.spotify.com/v1/recommendations?market=US&seed_tracks=' + selected + '&limit=10',
+                url: 'https://api.spotify.com/v1/recommendations?market=US&seed_tracks=' + selected + '&limit=' + limit,
                 headers: {
                 'Authorization': 'Bearer ' + access_token
                 },
