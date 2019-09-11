@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Searchify</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="bat-logo-100.png" />
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="login">
+          <div class="jumbotron mt-md-5" id="login-jtron">
+              <h1 class="display-3 d-md-4">Welcome to Searchify!</h1>
+              <p class="lead">Search for music and find recommendations for your top tracks on Spotify</p>
+              <hr class="my-4">
+              <p>Login with Spotify to begin</p>
+              <a href="/login" class="btn btn-primary">Login with Spotify</a>
+          </div>
+      </div>
+      <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <!-- <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button> -->
+      </div>
+    </div>
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <!-- <h1>Logged in as {{display_name}}</h1>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" width="150" src="{{images.0.url}}" />
+        </div>
+        <div class="media-body">
+          <dl class="dl-horizontal">
+            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>Id</dt><dd>{{id}}</dd>
+            <dt>Email</dt><dd>{{email}}</dd>
+            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
+            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+            <dt>Country</dt><dd>{{country}}</dd>
+          </dl>
+        </div>
+      </div> -->
+      <div class="rec-alert" style="display:none">
+          <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Make sure you have at least <strong>one (1)</strong> song checked off
+          </div>
+      </div>
+
+      <div class="results">
+          <div class="getTracksRecs">
+              <div class="top-btns">
+                  <button class="tracks-btn btn btn-primary get-btns" id="get-top-tracks" onclick="getTopTracks()">Get Top Tracks</button>
+                  <button class="recs-btn btn btn-primary get-btns" id="get-recs" onclick="getRecommendations()" style="display:none">Get Recommendations</button>
+              </div>
+
+              <div id="show-top-tracks"></div>
+              </p>
+              <table class="show-recs table table-hover table-light" id="getrecommendations" style="display:none">
+                  <thead>
+                      <tr id="tb-hdr-row">
+                        <th scope="col">Song</th>
+                        <th scope="col">Artist</th>
+                        <th scope="col">Album</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              </table>
+      </div>
+    </div>
+    </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+      <!-- <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+      </dl> -->
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="/auth.js"></script>
+
+  </body>
+</html>
