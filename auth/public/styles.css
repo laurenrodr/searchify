@@ -1,0 +1,112 @@
+
+
+body {
+   margin: 0;
+   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   font-size: 0.875rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #919aa1;
+   text-align: left;
+   background-color: #2f2f2f;
+}
+
+.form-check-input {
+   position: absolute;
+   margin-top: 0.3rem;
+   /* margin-left: -1.25rem; */
+   margin-left: -0.75rem;
+   padding-right: 5px;
+}
+
+.btn.disabled, .btn:disabled {
+  /* opacity: 0.6; */
+  opacity: 1;
+
+}
+
+.mt-md-5,
+.my-md-5 {
+  margin-top: 6rem !important;
+}
+
+#login, #loggedin {
+  display: none;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+}
+
+#tb-hdr-row {
+    border-bottom: 2.5px solid #919aa1;
+}
+
+#show-top-tracks {
+    margin: 10px;
+}
+
+#show-top-tracks a {
+    color: white;
+    padding-left: 10px;
+}
+
+.rec-alert {
+    position:fixed;
+    float: right;
+    top: 0px;
+    right: 0px;
+    z-index:9999;
+    border-radius:0px;
+}
+
+.results {
+    margin: 10px
+}
+
+.get-btns {
+    margin: 10px 15px 15px 15px;
+    align-items: center;
+}
+
+.getTracksRecs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top-btns {
+    display: flex;
+    justify-content: center;
+}
+
+a[name="top-tracks"] {
+    margin-left: 5px;
+}
+
+#login-jtron {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+}
+
+
+#login-jtron a {
+    max-width: 200px;
+    text-decoration: none;
+}
+
+#login-jtron hr {
+    width: 100%;
+    background-color: #191919;
+    /* height: 1px; */
+}
+
+#dCard {
+    /* max-width: 20rem; */
+    width: 500px;
+    color: #191919
+}
