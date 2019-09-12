@@ -14,7 +14,7 @@ To run the project, open the project folder named 'searchify' with the name of t
 
     $ node app.js
 
-Then, open 'http://localhost:8888' in a browser.
+Then, open 'http://localhost:8888' in your browser.
 
 ## Example
 ![Searcify Track Search and Recommendation Example](https://github.com/laurenrodr/searchify/blob/master/examples/topTracksRec.gif)
