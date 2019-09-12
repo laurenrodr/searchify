@@ -1,7 +1,7 @@
 # Searchify
 
 This project uses the Spotify Web API to allows users to see their top 10 songs of the last month from Spotify,
-and the ability to select one (1) or more of those songs to generate 10 new track recommendations based on those songs
+and the ability to select one (1) or more of those songs to generate 10 new track recommendations based on the selected songs
 
 ## Installation
 
